@@ -6,7 +6,7 @@ const sumAll = function(numOne, numTwo) {
     /* If numOne bigger than numTwo, let i = numTwo + 1 and iterate over i,
      pushing i into arr then adding one to i while i is less than numOne.
      Else do the same but reverse numOne and numTwo*/
-    if (numOne > numTwo) {
+   /* if (numOne > numTwo) {
         let i = numTwo + 1;
         while (i < numOne) {
             arr.push(i);
@@ -21,7 +21,16 @@ const sumAll = function(numOne, numTwo) {
     }
     // Return the sum of arr
     return arr.reduce((sum, current) => sum + current, 0);
-    
+    */
+
+    // Cleaner more readable code from solution, rewrote for practice
+    if (numOne > numTwo) [numOne, numTwo] = [numTwo, numOne];
+
+    let sum = 0;
+    for (let i = numOne; i <= numTwo; i++) {
+        sum += i
+    }
+    return sum;
 };
 
 // Do not edit below this line
