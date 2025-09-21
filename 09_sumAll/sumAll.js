@@ -6,6 +6,7 @@ const sumAll = function(numOne, numTwo) {
     /* If numOne bigger than numTwo, let i = numTwo + 1 and iterate over i,
      pushing i into arr then adding one to i while i is less than numOne.
      Else do the same but reverse numOne and numTwo*/
+     
    /* if (numOne > numTwo) {
         let i = numTwo + 1;
         while (i < numOne) {
