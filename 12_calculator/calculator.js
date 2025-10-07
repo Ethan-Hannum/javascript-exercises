@@ -18,8 +18,13 @@ const power = function(a, b) {
 	return a ** b;
 };
 
-const factorial = function() {
-	
+const factorial = function(num) {
+  let arr = [num]
+  for (let i = num - 1; i >= 1; i--) {
+    arr.push(i);
+  }
+
+  return arr.reduce((product, item) => product * item);
 };
 
 // Do not edit below this line
