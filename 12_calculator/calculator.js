@@ -19,12 +19,16 @@ const power = function(a, b) {
 };
 
 const factorial = function(num) {
-  let arr = [num]
-  for (let i = num - 1; i >= 1; i--) {
-    arr.push(i);
+    if (num != 0) {
+    let arr = [num]
+    for (let i = num - 1; i >= 1; i--) {
+      arr.push(i);
+    }
+  
+    return arr.reduce((product, item) => product * item, 1);
+  } else {
+    return 1;
   }
-
-  return arr.reduce((product, item) => product * item, 1);
 };
 
 // Do not edit below this line
