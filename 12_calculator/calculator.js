@@ -24,7 +24,7 @@ const factorial = function(num) {
     arr.push(i);
   }
 
-  return arr.reduce((product, item) => product * item);
+  return arr.reduce((product, item) => product * item, 1);
 };
 
 // Do not edit below this line
