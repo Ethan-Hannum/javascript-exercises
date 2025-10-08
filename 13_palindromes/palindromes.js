@@ -15,10 +15,6 @@ const palindromes = function (str) {
 
     arr.reverse();
 
-    // Take punctuation out of arr and assign it to an object with the key being
-    // the index of punctuation and value being the punctuation itself
-    
-
     return arr;
 };
 
