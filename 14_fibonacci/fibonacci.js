@@ -12,14 +12,18 @@ const fibonacci = function(interval) {
     
     // Fibonacci loop
     // Start loop at second fibonacci sequence and loop until at desired interval
-    for (i = 2; i <= interval; ++i) {
+    for (i = 2; i <= +interval; ++i) {
         sequence.current = sequence.far + sequence.previous;
         sequence.far = sequence.previous;
         sequence.previous = sequence.current;
     }
 
-    if (interval < 0) {
-        return "OOPS"
+    // Checks if interval is 1 or 0 and returns needed values
+    // Else return current number
+    if (interval == 1) {
+        return 1
+    } else if (interval < 0) {
+        return "OOPS";
     } else {
         return sequence.current;
     }
