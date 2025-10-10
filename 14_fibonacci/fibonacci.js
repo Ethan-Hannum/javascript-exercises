@@ -7,12 +7,9 @@ const fibonacci = function(interval) {
     const sequence = {
         far: 0,
         previous: 1,
-        current: 1
+        current: 0
     };
-
-    if (interval = 0) return 0;
-    if (interval < 0) return "OOPS";
-
+    
     // Fibonacci loop
     // Start loop at second fibonacci sequence and loop until at desired interval
     for (i = 2; i <= interval; ++i) {
@@ -20,8 +17,12 @@ const fibonacci = function(interval) {
         sequence.far = sequence.previous;
         sequence.previous = sequence.current;
     }
-    
-    return sequence.current;
+
+    if (interval < 0) {
+        return "OOPS"
+    } else {
+        return sequence.current;
+    }
 
 };
 
