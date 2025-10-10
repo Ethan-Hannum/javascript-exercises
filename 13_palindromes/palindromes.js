@@ -1,36 +1,43 @@
 const palindromes = function (str) {
-    // Split str into arr and save the length of arr - 1 to arrLength
-    let arr = str.split("")
-    const arrLength = arr.length - 1;
-
-    /* Create object punctuation that finds punctuation characters in arr and
-    saves the index as a key with the character being it's value. Then splices
-    the character out of arr.*/
-    let punctuation = arr.reduce((obj, char, index) => {
-        if (char === (("!") || (".") || (",") || ("?") || (` `))) {
-            obj[index] = char;
-            arr.splice(index, 1);
-            return obj;
-        } else {
-            return obj;
+    // Make the string lowercase then split it into an array
+    let lowerStr = str.toLowerCase();
+    let arr = lowerStr.split("")
+    
+    // Filter through copyArr multiple times to remove all punctuation.
+    /* Tried using just one filter method, but anytime I added OR operator
+    the array would not be filtered correctly.*/
+    let copyArr = arr.filter((char) => {
+        if (char != " ") {
+            return char;
         }
-    }, {});
+    });
 
-    let finalArr = [];
-    // Take arrLength and use that to build finalArr as a reversed arr
-    // If index is not a punctuation key, unshift character at index of arr
-    // Else unshift punctuation character at index of punctuation
-    for (index = arrLength; index >= 0; --index) {
-        if (punctuation[index] === undefined) {
-            finalArr.unshift(arr[index]);
-        } else {
-            finalArr.unshift(punctuation[index]);
+    copyArr = copyArr.filter((char) => {
+        if (char != "!") {
+            return char;
         }
-    }
+    });
 
-    // Compare original string to finalArr joined into string
+    copyArr = copyArr.filter((char) => {
+        if (char != ",") {
+            return char;
+        }
+    });
+
+    copyArr = copyArr.filter((char) => {
+        if (char != ".") {
+            return char;
+        }
+    });
+
+    // Slice(copy) copyArr to reverseStr then reverse the new array
+    let reverseStr = copyArr.slice();
+    reverseStr.reverse();
+
+
+    // Compare the joined reversed array to the joined original array
     // Return true if palindrome; Return false if not palindrome
-    return str === finalArr.join("");
+    return reverseStr.join("") === copyArr.join("");
 };
 
 // Do not edit below this line
