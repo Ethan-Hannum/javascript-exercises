@@ -10,6 +10,9 @@ const fibonacci = function(interval) {
         current: 1
     };
 
+    if (interval = 0) return 0;
+    if (interval < 0) return "OOPS";
+
     // Fibonacci loop
     // Start loop at second fibonacci sequence and loop until at desired interval
     for (i = 2; i <= interval; ++i) {
